@@ -1,12 +1,24 @@
 # import the python datetime module to help us create a timestamp
 from datetime import date
 
+
 class Pig:
 
-    def __init__(self, name, species):
+    def __init__(self, name, species, shift, food):
         self.name = name
         self.species = species
         self.date_added = date.today()
         self.walking = True
+        self.shift = shift
+        self.food = food
 
-wilbur = Pig("Wilbur", "pot-bellied pig")
+    def feed(self):
+        print(f"{self.name} was fed {self.food} on {date.today().strftime("%m/%d/%Y")}")
+
+    def available(self):
+        print(
+            f"{self.name} the {self.species} is available to pet during the {self.shift} shift."
+        )
+
+    def __str__(self):
+        return f"{self.name} is a {self.species}"
